@@ -4,9 +4,9 @@ int main(){
     int t;
     cin>>t;
     while(t--){
-        int t;
+        int f;
         string s;
-        cin>>t;
+        cin>>f;
         cin>>s;
         string sr;
         sr=s;
