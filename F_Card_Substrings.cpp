@@ -14,6 +14,8 @@
 #define MIN(x) *min_element(ALL(x))
 using namespace std;
 int main(){
+
+    
     //testing
     ios_base::sync_with_stdio(false);cin.tie(NULL);
     ll n , m;
