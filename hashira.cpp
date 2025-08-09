@@ -4,7 +4,7 @@
 #include <vector>
 #include <algorithm>
 #include <cmath> // For round()
-
+#include<bits/stdc++.h>
 // Fix for older compilers (disables C++17 <optional>)
 #define NLOHMANN_JSON_HAS_OPTIONAL 0
 
@@ -62,11 +62,11 @@ long long find_secret_c(const std::vector<Point>& points, int k) {
  * @brief Reads a JSON file, decodes points, and solves for the secret constant.
  */
 void solve_from_file(const std::string& filename) {
-    std::cout << "--- Processing File: " << filename << " ---" << std::endl;
+    // std::cout << "--- Processing File: " << filename << " ---" << std::endl;
 
     std::ifstream file_stream(filename);
     if (!file_stream.is_open()) {
-        std::cerr << "Error: Could not open file '" << filename << "'" << std::endl;
+        // std::cerr << "Error: Could not open file '" << filename << "'" << std::endl;
         return;
     }
 
@@ -74,7 +74,7 @@ void solve_from_file(const std::string& filename) {
     try {
         data = json::parse(file_stream);
     } catch (json::parse_error& e) {
-        std::cerr << "Error: JSON parsing failed: " << e.what() << std::endl;
+        // std::cerr << "Error: JSON parsing failed: " << e.what() << std::endl;
         return;
     }
 
@@ -102,16 +102,17 @@ void solve_from_file(const std::string& filename) {
         return a.first < b.first;
     });
 
-    std::cout << "Degree of polynomial (m): " << k - 1 << std::endl;
-    std::cout << "Minimum points required (k): " << k << std::endl;
-    std::cout << "Decoded points (using first " << k << "):" << std::endl;
-    std::cout.precision(0); 
-    for(size_t i = 0; i < std::min((size_t)k, points.size()); ++i) {
-        std::cout << "  (x=" << points[i].first << ", y=" << std::fixed << points[i].second << ")" << std::endl;
-    }
+    // std::cout << "Degree of polynomial (m): " << k - 1 << std::endl;
+    // std::cout << "Minimum points required (k): " << k << std::endl;
+    // std::cout << "Decoded points (using first " << k << "):" << std::endl;
+    // std::cout.precision(0); 
+    // for(size_t i = 0; i < std::min((size_t)k, points.size()); ++i) {
+    //     std::cout << "  (x=" << points[i].first << ", y=" << std::fixed << points[i].second << ")" << std::endl;
+    // }
 
     long long secret_value = find_secret_c(points, k);
-    std::cout << "\nResult: The calculated secret (constant 'c') is: " << secret_value << "\n" << std::endl;
+    // std::cout << "\nResult: The calculated secret (constant 'c') is: " << secret_value << "\n" << std::endl;
+    std::cout << secret_value << " ";
 }
 
 int main() {
